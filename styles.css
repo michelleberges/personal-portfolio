@@ -140,7 +140,6 @@
     transform: translateY(12px);
   }
   
-  /* 1200px is roughly 75em */
   @media (max-width: 75em) {
     html {
       font-size: 80%;
