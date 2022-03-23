@@ -117,6 +117,8 @@
   
   figure img {
     width: 20rem;
+    height: 13rem;
+    border-radius: 1rem;
   }
   
   figcaption {

@@ -1,0 +1,26 @@
+:root {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  h1 {
+    color: #7a3f5c;
+    text-align: center;
+  }
+  main {
+    display: flex;
+    flex-wrap: wrap;
+    
+  }
+  figure {
+    margin: .5rem;
+    text-align: center;
+    font-size: large;
+    font-family: 'noteworthy';
+  }
+  figure img {
+    max-height: 25rem;
+    border: #97A6A0 solid;
+    border-radius: 1rem;
+  }
