@@ -1,0 +1,71 @@
+body {
+    background-color: #cf92b4;
+    font-family: 'noteworthy'
+  }
+  
+  header {
+    font-size: xx-large;
+    color: #7a3f5c;
+    text-align: center;
+  }
+
+  h1 { 
+    font-size: 4rem;
+    padding: 4rem;
+  }
+  
+  .mainContainer {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .navList {
+    display: flex;
+    flex-direction: column;
+  }
+  .navList a:hover {
+color: #7a3f5c;
+  }
+  
+  .shipViewer {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .shipViewer img {
+    border: #fff solid;
+    border-radius: 1rem;
+    max-height: 40rem;
+    width: auto;
+  }
+  
+  .box {
+    background-color: #7a3f5c;
+    color: #fff;
+    font-size: xx-large;
+    text-align: center;
+  }
+  
+  /* .modal-background {
+    background-color: #333;
+  } */
+  
+  .nav {
+    min-width: 16rem;
+  }
+  
+  ul {
+  margin: 1rem;
+  list-style-type: none;
+  }
+  
+  a {
+    text-decoration: none;
+    color: white;
+    font-size: x-large;
+  }
+
+  footer {
+    color: #7a3f5c;
+    text-align: center;
+  }
