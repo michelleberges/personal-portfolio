@@ -10,6 +10,7 @@
 width: 200px;
 height: 200px;
 margin: .5rem;
+perspective: 600px;
 }
 
 .card {
