@@ -21,8 +21,13 @@ const femaleButton = document.createElement('button')
 femaleButton.textContent = 'Female'
 femaleButton.addEventListener('click', () => simplifiedSenators(femaleCongress))
 
+const senatorsButton = document.createElement('button')
+senatorsButton.textContent = 'Senators'
+senatorsButton.addEventListener('click', () => simplifiedSenators(senatorsCongress))
+
 header.appendChild(maleButton)
 header.appendChild(femaleButton)
+header.appendChild(senatorsButton)
 
 
 
