@@ -9,27 +9,31 @@ const allCongressMembers = [...senators, ...representatives]
 const senatorDiv = document.querySelector('.senatorsDiv')
 const seniorityHeading = document.querySelector('.seniority')
 const loyaltyList = document.querySelector('.loyaltyList')
-
-const maleCongress = senators.filter((senator) => senator.gender === 'M')
-const femaleCongress = senators.filter((senator) => senator.gender === 'F') 
+const simpleSenators = simplifiedSenators()
+const maleCongress = simpleSenators.filter((senator) => senator.gender === 'M')
+const femaleCongress = simpleSenators.filter((senator) => senator.gender === 'F') 
 
 const maleButton = document.createElement('button')
 maleButton.textContent = 'Male'
-maleButton.addEventListener('click', () => simplifiedSenators(maleCongress))
+maleButton.addEventListener('click', () => populateSenatorDiv(maleCongress))
 
 const femaleButton = document.createElement('button')
 femaleButton.textContent = 'Female'
-femaleButton.addEventListener('click', () => simplifiedSenators(femaleCongress))
+femaleButton.addEventListener('click', () => populateSenatorDiv(femaleCongress))
 
 const senatorsButton = document.createElement('button')
-senatorsButton.textContent = 'Senators'
-senatorsButton.addEventListener('click', () => simplifiedSenators(senatorsCongress))
+senatorsButton.textContent = 'All Senators'
+senatorsButton.addEventListener('click', () => populateSenatorDiv(simpleSenators))
 
 header.appendChild(maleButton)
 header.appendChild(femaleButton)
 header.appendChild(senatorsButton)
 
-
+function removeChildren(parent){
+  while (parent.firstChild) {
+    parent.removeChild(parent.firstChild)
+  }
+}
 
 
 function simplifiedSenators() {
@@ -48,9 +52,10 @@ function simplifiedSenators() {
   })
 }
 
-const simpleSenators = simplifiedSenators()
+
 
 function populateSenatorDiv(senatorArray) {
+  removeChildren(senatorDiv)
   senatorArray.forEach(senator => {
     const senFigure = document.createElement('figure')
     const figImg = document.createElement('img')
