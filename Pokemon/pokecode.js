@@ -6,11 +6,24 @@ const getAPIData = async (url) => {
       console.error(error)
     }
   }
+
+  const loadedPokemon = []
   
   async function loadPokemon(offset = 0, limit = 25) {
-    const pokeData = await getAPIData(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`)
+    const pokeData = await getAPIData(
+      `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`)
     for (const nameAndUrl of pokeData.results) {
       const pokemon = await getAPIData(nameAndUrl.url)
+      const simplifiedPokemon = {
+        id: pokemon.id,
+        height: pokemon.height,
+        weight: pokemon.weight,
+        name: pokemon.name,
+        types: pokemon.types,
+        abilities: pokemon.abilities,
+        moves: pokemon.moves.slice(0, 3),
+      }
+      loadedPokemon.push(simplifiedPokemon)
       populatePokeCard(pokemon)
     }
   }
@@ -82,6 +95,14 @@ const getAPIData = async (url) => {
   function populateCardFront(pokemon) {
     const pokeFront = document.createElement('figure')
     pokeFront.className = 'cardFace front'
+    const pokeType1 = pokemon.types[0].type.name
+    //const pokeType2 = pokemon.types[1]?.type.name
+    // console.log(pokeType1, pokeType2)
+    // console.log(getPokeTypeColor(pokeType1))
+    pokeFront.style.setProperty('background', getPokeTypeColor(pokeType1))
+  /*   if(pokeType2) {
+      pokeFront.style.setProperty('background', `linear-gradient(${getPokeTypeColor(pokeType1)}, {$getPokeTypeColor(pokeType2)})`)
+    } */
     const pokeImg = document.createElement('img')
     if (pokemon.id > 9000) {
       // load local image
@@ -113,4 +134,50 @@ const getAPIData = async (url) => {
     return pokeBack
   }
 
-  loadPokemon(700, 50)
+  function getPokeTypeColor(pokeType) {
+    let color
+    //if(pokeType === "grass") color = '#00FF00'
+    switch (pokeType) {
+      case 'grass':
+        color = '#00FF00'
+        break
+      case 'fire':
+        color = '#FF0000'
+        break
+      case 'water':
+        color = '#0000FF'
+        break
+      case 'bug':
+        color = '#7FFF00'
+        break
+      case 'normal':
+        color = '#F5F5DC'
+        break
+      case 'flying':
+        color = '#00FFFF'
+        break
+      case 'poison':
+        color = '#C300FF'
+        break
+      case 'electric':
+        color = '#C8FF00'
+        break
+      case 'psychic':
+        color = 'pink'
+        break
+      case 'ground':
+        color = 'brown'
+        break
+      default:
+        color = '#888888'
+    }
+    return color
+  }
+  
+  await loadPokemon(0, 250)
+  
+  function getPokemonByType(type) {
+    return loadedPokemon.filter((pokemon) => pokemon.types[0].type.name === type)
+  }
+  // now figure out how to display this count in the UI
+  console.log(getPokemonByType('poison'))
