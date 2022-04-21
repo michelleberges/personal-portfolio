@@ -44,7 +44,7 @@ const getAPIData = async (url) => {
   header.appendChild(newButton)
   newButton.addEventListener('click', () => {
   
-    const pokeName = prompt('What is the name of your new Pokemon?', 'Thoremon')
+    const pokeName = prompt('What is the name of your new Pokemon?', 'name here')
     const pokeHeight = prompt("What is the Pokemon's height?", 20)
     const pokeWeight = prompt("What is the Pokemon's weight?", 1000)
     const pokeAbilities= prompt("What are your Pokemon's abilities? (use a comman-separated list)")
