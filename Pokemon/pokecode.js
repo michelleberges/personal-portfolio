@@ -139,34 +139,34 @@ const getAPIData = async (url) => {
     //if(pokeType === "grass") color = '#00FF00'
     switch (pokeType) {
       case 'grass':
-        color = '#00FF00'
+        color = '#A7DB8D'
         break
       case 'fire':
-        color = '#FF0000'
+        color = '#F5AC78'
         break
       case 'water':
-        color = '#0000FF'
+        color = '#9DB7F5'
         break
       case 'bug':
-        color = '#7FFF00'
+        color = '#C6D16E'
         break
       case 'normal':
-        color = '#F5F5DC'
+        color = '#C6C6A7'
         break
       case 'flying':
-        color = '#00FFFF'
+        color = '#C6B7F5'
         break
       case 'poison':
-        color = '#C300FF'
+        color = '#C183C1'
         break
       case 'electric':
-        color = '#C8FF00'
+        color = '#FAE078'
         break
       case 'psychic':
-        color = 'pink'
+        color = '#FA92B2'
         break
       case 'ground':
-        color = 'brown'
+        color = '#EBD69D'
         break
       default:
         color = '#888888'

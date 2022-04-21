@@ -3,14 +3,31 @@
     box-sizing: border-box;
     font-family: 'PT mono';
   }
+  header{
+    background-color: rgb(207, 152, 207);
+    height: 100px;
+  }
+  header h1{
+    text-align: center;
+    color: white;
+    padding-top: 10px;
+  }
+  header button{
+    width: 100px;
+    background-color: rgb(130, 198, 238);
+    color: white;
+    border-radius: 5px;
+    justify-content: center;
+  }
 .pokeGrid {
     display: flex;
     flex-wrap: wrap;
     padding: 1px;
+    justify-content: center;
 }
 .scene {
 width: 200px;
-height: 200px;
+height: 260px;
 margin: .5rem;
 perspective: 600px;
 }
@@ -38,14 +55,14 @@ perspective: 600px;
   
   .front {
     background-color: aqua;
-    border-radius: 1in;
+    border-radius: .5rem;
   }
   
   .back {
-    background: lightpink;
+    background: #FA92B2;
     color: white;
     transform: rotateY(180deg);
-    border-radius: .3in;
+    border-radius: .5rem;
     padding-top: .5rem;
    
   }
@@ -56,11 +73,20 @@ perspective: 600px;
     padding-left: .8rem;
   }
   
+  figure{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
 figure img {
-    width: 195px;
+    width: 200px;
     padding: .1in;
 }
 
 figcaption {
     text-align: center;
+    text-transform: capitalize;
+    background-color: rgba(0, 0, 0, 0.404);
+    color: white;
+    border-radius: 1rem;
   }
