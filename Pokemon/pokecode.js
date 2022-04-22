@@ -1,3 +1,4 @@
+import { removeChildren } from '../utils/index.js'
 const getAPIData = async (url) => {
     try {
       const result = await fetch(url)
@@ -21,7 +22,7 @@ const getAPIData = async (url) => {
         name: pokemon.name,
         types: pokemon.types,
         abilities: pokemon.abilities,
-        moves: pokemon.moves.slice(0, 3),
+        moves: pokemon.moves.slice(0, 2),
       }
       loadedPokemon.push(simplifiedPokemon)
       populatePokeCard(pokemon)
@@ -34,7 +35,7 @@ const getAPIData = async (url) => {
         this.height = height,
         this.weight = weight,
         this.abilities = abilities,
-        this.types = types
+        this.types = types,
         this.moves = moves
     }
   }
@@ -61,6 +62,7 @@ const getAPIData = async (url) => {
       pokeWeight,
       makeAbilitiesArray(pokeAbilities),
       makeTypesArray(pokeTypes),
+      makeMovesArray(pokeMoves)
     )
     console.log(newPokemon)
     populatePokeCard(newPokemon)
@@ -72,9 +74,14 @@ const getAPIData = async (url) => {
       }
     })
   }
+  function makeMovesArray(spacedString) {
+    return spacedString.split(',').map((movesName)=> {
+           return { move: { name: movesName}}
+     })
+   }
   
   function makeTypesArray(spacedString) {
-    return spacedString.split(' ').map((typeName) => {
+    return commaString.split(' ').map((typeName) => {
       return {
         type: { name: typeName}
       }
@@ -119,6 +126,21 @@ const getAPIData = async (url) => {
   function populateCardBack(pokemon) {
     const pokeBack = document.createElement('div')
     pokeBack.className = 'cardFace back'
+    
+    const pokeType1 = pokemon.types[0].type.name
+    pokeBack.style.setProperty('background', getPokeTypeColor(pokeType1))
+    
+    const typeLabel = document.createElement("h4");
+    typeLabel.textContent = "Type";
+    pokeBack.appendChild(typeLabel);
+    const typesList = document.createElement('dl')
+    pokemon.types.forEach((pokeType) => {
+      const typeItem = document.createElement('dt')
+      typeItem.textContent = pokeType.type.name 
+      typesList.appendChild(typeItem)
+    })
+    pokeBack.appendChild(typesList)
+
     const label = document.createElement('h4')
     label.textContent = 'Abilities'
     pokeBack.appendChild(label)
@@ -129,8 +151,35 @@ const getAPIData = async (url) => {
       abilityList.appendChild(listItem)
     })
     pokeBack.appendChild(abilityList)
+
+    const moveslabel = document.createElement('h4')
+    moveslabel.textContent = 'Moves'
+    pokeBack.appendChild(moveslabel)
+    const movesList = document.createElement('ul')
+    pokemon.moves.forEach((movesItem) => {
+      const pokeMovesItem = document.createElement('li');
+      pokeMovesItem.textContent = movesItem.move.name;
+      movesList.appendChild(pokeMovesItem);
+    })
+    pokeBack.appendChild(movesList)
     return pokeBack
+  
   }
+
+  function filterPokemonByType(type) {
+    return loadedPokemon.filter((pokemon) => {
+      if(pokemon.types[0].type.name === type) return pokemon
+      if((pokemon.types[1]?.type.name) && (pokemon.types[1].type.name === type)) {
+        return pokemon
+      } 
+    })
+  }
+  const selectType = document.querySelector('.type-selector');
+  selectType.addEventListener('change', (event) => {
+    const filterByType = filterPokemonByType(event.target.value)
+    removeChildren(pokeGrid) 
+    filterByType.forEach(pokemon => populatePokeCard(pokemon))
+  })
 
   function getPokeTypeColor(pokeType) {
     let color
@@ -166,16 +215,16 @@ const getAPIData = async (url) => {
       case 'ground':
         color = '#EBD69D'
         break
+        case 'rock':
+          color = '#D1C17D'
       default:
         color = '#888888'
     }
     return color
   }
-  
+
   await loadPokemon(0, 250)
+
   
-  function getPokemonByType(type) {
-    return loadedPokemon.filter((pokemon) => pokemon.types[0].type.name === type)
-  }
+  
   // now figure out how to display this count in the UI
-  console.log(getPokemonByType('poison'))

@@ -20,6 +20,24 @@
     color: white;
     border-radius: 5px;
   }
+
+  #filter{
+    padding: 1px;
+    margin: .5rem;
+    display: flex;
+    justify-content: center;
+    padding-top: .8rem;
+  }
+
+  .type-selector{
+width: 150px;
+font-size: medium;
+background-color: rgb(130, 198, 238);
+color: white;
+border: solid rgba(0, 0, 0, 0.404) 2px;
+border-radius: .2rem;
+  }
+
 .pokeGrid {
     display: flex;
     flex-wrap: wrap;
@@ -66,13 +84,12 @@ perspective: 600px;
     color: white;
     transform: rotateY(180deg);
     border-radius: .5rem;
-    padding-top: .5rem;
+    padding-top: .1rem;
    
   }
 
   .back h4{
-    padding-top: .5rem;
-    padding-bottom: 1rem;
+    padding-bottom: .2rem;
     padding-left: .8rem;
   }
   
@@ -93,9 +110,12 @@ figcaption {
     color: white;
     border-radius: 1rem;
   }
-  ul {
-    list-style-type: '\2705';
-  }
   li{
     padding-left: 5px;
+  }
+  dt {
+    text-align: center;
+  }
+  dl {
+    text-align: center;
   }
