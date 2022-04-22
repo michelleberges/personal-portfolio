@@ -22,7 +22,7 @@ const getAPIData = async (url) => {
         name: pokemon.name,
         types: pokemon.types,
         abilities: pokemon.abilities,
-        moves: pokemon.moves.slice(0, 2),
+        moves: pokemon.moves.slice(0, 4),//I don't know if this makes sense but for some reason the card only shows 4moves works when pokemons are filtered by type. 
       }
       loadedPokemon.push(simplifiedPokemon)
       populatePokeCard(pokemon)
@@ -183,7 +183,6 @@ const getAPIData = async (url) => {
 
   function getPokeTypeColor(pokeType) {
     let color
-    //if(pokeType === "grass") color = '#00FF00'
     switch (pokeType) {
       case 'grass':
         color = '#A7DB8D'
@@ -224,7 +223,3 @@ const getAPIData = async (url) => {
   }
 
   await loadPokemon(0, 250)
-
-  
-  
-  // now figure out how to display this count in the UI
