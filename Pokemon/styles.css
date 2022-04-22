@@ -5,19 +5,20 @@
   }
   header{
     background-color: rgb(207, 152, 207);
-    height: 100px;
+    height: 115px;
   }
   header h1{
     text-align: center;
     color: white;
     padding-top: 10px;
+    padding-bottom: 10px;
   }
   header button{
-    width: 100px;
+    width: 120px;
+    font-size: large;
     background-color: rgb(130, 198, 238);
     color: white;
     border-radius: 5px;
-    justify-content: center;
   }
 .pokeGrid {
     display: flex;
@@ -39,6 +40,8 @@ perspective: 600px;
   transition: transform 1s;
   transform-style: preserve-3d;
   position: relative;
+  border: solid rgba(0, 0, 0, 0.404) 3px;
+  border-radius: .7rem;
 
 }
 
@@ -89,4 +92,10 @@ figcaption {
     background-color: rgba(0, 0, 0, 0.404);
     color: white;
     border-radius: 1rem;
+  }
+  ul {
+    list-style-type: '\2705';
+  }
+  li{
+    padding-left: 5px;
   }

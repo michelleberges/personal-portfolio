@@ -28,19 +28,23 @@ const getAPIData = async (url) => {
     }
   }
   class Pokemon {
-    constructor(name, height, weight, abilities, types) {
+    constructor(name, height, weight, abilities, types, moves) {
         this.id = 9001,
         this.name = name,
         this.height = height,
         this.weight = weight,
         this.abilities = abilities,
         this.types = types
+        this.moves = moves
     }
   }
 
   const newButton = document.createElement('button')
   newButton.textContent = 'New Pokemon'
   const header = document.querySelector('header')
+  newButton.style.position = "absolute";
+  newButton.style.left = "50%";
+  newButton.style.transform = "translateX(-50%)";
   header.appendChild(newButton)
   newButton.addEventListener('click', () => {
   
@@ -49,6 +53,7 @@ const getAPIData = async (url) => {
     const pokeWeight = prompt("What is the Pokemon's weight?", 1000)
     const pokeAbilities= prompt("What are your Pokemon's abilities? (use a comman-separated list)")
     const pokeTypes = prompt("What are your Pokemon's types? (up to 2 types separated by a space)")
+    const pokeMoves = prompt("What are your Pokemon's moves? (add at least 3 moves)")
   
     const newPokemon = new Pokemon(
       pokeName,
@@ -96,16 +101,9 @@ const getAPIData = async (url) => {
     const pokeFront = document.createElement('figure')
     pokeFront.className = 'cardFace front'
     const pokeType1 = pokemon.types[0].type.name
-    //const pokeType2 = pokemon.types[1]?.type.name
-    // console.log(pokeType1, pokeType2)
-    // console.log(getPokeTypeColor(pokeType1))
     pokeFront.style.setProperty('background', getPokeTypeColor(pokeType1))
-  /*   if(pokeType2) {
-      pokeFront.style.setProperty('background', `linear-gradient(${getPokeTypeColor(pokeType1)}, {$getPokeTypeColor(pokeType2)})`)
-    } */
     const pokeImg = document.createElement('img')
     if (pokemon.id > 9000) {
-      // load local image
       pokeImg.src = '../images/pokeball.png'
     } else {   
     pokeImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`
