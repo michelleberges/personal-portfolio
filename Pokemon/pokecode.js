@@ -80,7 +80,7 @@ const getAPIData = async (url) => {
      })
    }
   
-  function makeTypesArray(spacedString) {
+  function makeTypesArray(commaString) {
     return commaString.split(' ').map((typeName) => {
       return {
         type: { name: typeName}
