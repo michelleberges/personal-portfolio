@@ -53,7 +53,7 @@ const getAPIData = async (url) => {
     const pokeHeight = prompt("What is the Pokemon's height?", 20)
     const pokeWeight = prompt("What is the Pokemon's weight?", 1000)
     const pokeAbilities= prompt("What are your Pokemon's abilities? (use a comman-separated list)")
-    const pokeTypes = prompt("What are your Pokemon's types? (up to 2 types separated by a space)")
+    const pokeTypes = prompt("What are your Pokemon's types? (up to 2 types separated by a comma)")
     const pokeMoves = prompt("What are your Pokemon's moves? (add at least 3 moves)")
   
     const newPokemon = new Pokemon(
