@@ -120,6 +120,9 @@
     height: 13rem;
     border-radius: 1rem;
   }
+  figure img:hover{
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.644);
+  }
   
   figcaption {
     background-color: #b3849b;
