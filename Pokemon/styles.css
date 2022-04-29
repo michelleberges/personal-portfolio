@@ -62,6 +62,11 @@ perspective: 600px;
   border-radius: .7rem;
 
 }
+.card:hover {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.644);
+  transform: translateY(5px);
+  transition: transform 0.15s ease-out;
+}
 
 .cardFace {
     width: 100%;
