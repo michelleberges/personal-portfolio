@@ -10,6 +10,7 @@ const senatorDiv = document.querySelector('.senatorsDiv')
 const seniorityHeading = document.querySelector('.seniority')
 const loyaltyList = document.querySelector('.loyaltyList')
 const simpleSenators = simplifiedSenators()
+//const simpleRepresentatives = simplifiedRepresentatives
 const maleCongress = simpleSenators.filter((senator) => senator.gender === 'M')
 const femaleCongress = simpleSenators.filter((senator) => senator.gender === 'F') 
 
@@ -25,9 +26,14 @@ const senatorsButton = document.createElement('button')
 senatorsButton.textContent = 'All Senators'
 senatorsButton.addEventListener('click', () => populateSenatorDiv(simpleSenators))
 
+//const RepresentativesButton = document.createElement('button')
+//RepresentativesButton.textContent = 'Representatives'
+//RepresentativesButton.addEventListener('click', () => populateRepresentativesDiv(simpleRepresentatives))
+
 header.appendChild(maleButton)
 header.appendChild(femaleButton)
 header.appendChild(senatorsButton)
+//header.appendChild(RepresentativesButton)
 
 function removeChildren(parent){
   while (parent.firstChild) {
@@ -96,46 +102,46 @@ simplifiedSenators().forEach(senator => {
 })
 
 
-
-
-// function simplifiedRepresentatives() {
-//     return representatives.map(representative => {
-//       const middleName = representative.middle_name ? ` ${representative.middle_name} ` : ` `
-//       return {
-//         id: representative.id,
-//         name: `${representative.first_name}${middleName}${representative.last_name}`,
-//         party: representative.party,
-//         gender: representative.gender,
-//         imgURL: `https://www.govtrack.us/static/legislator-photos/${representative.govtrack_id}-200px.jpeg`,
-//         seniority: +representative.seniority,
-//         missedVotesPct: representative.missed_votes_pct,
-//         loyaltyPct: representative.votes_with_party_pct
-//       }
-//     })
-//   }
+//start of representatives
+/* function simplifiedRepresentatives() {
+     return representatives.map(representative => {
+       const middleName = representative.middle_name ? ` ${representative.middle_name} ` : ` `
+       return {
+         id: representative.id,
+         name: `${representative.first_name}${middleName}${representative.last_name}`,
+         party: representative.party,
+         gender: representative.gender,
+         imgURL: `https://www.govtrack.us/static/legislator-photos/${representative.govtrack_id}-200px.jpeg`,
+         seniority: +representative.seniority,
+         missedVotesPct: representative.missed_votes_pct,
+         loyaltyPct: representative.votes_with_party_pct
+      }
+     })
+  }
   
-//   const simpleRepresentatives = simplifiedRepresentatives()
+   const simpleRepresentatives = simplifiedRepresentatives()
   
-//   function populateRepresentativeDiv(representativeArray) {
-//     representativeArray.forEach(representative => {
-//       const repFigure = document.createElement('figure')
-//       const figImg = document.createElement('img')
-//       const figCaption = document.createElement('figcaption')
+   function populateRepresentativeDiv(representativeArray) {
+     representativeArray.forEach(representative => {
+       const repFigure = document.createElement('figure')
+       const figImg = document.createElement('img')
+       const figCaption = document.createElement('figcaption')
   
-//       figImg.src = representative.imgURL
-//       figCaption.textContent = representative.name
+       figImg.src = representative.imgURL
+       figCaption.textContent = representative.name
   
-//       repFigure.appendChild(figImg)
-//       repFigure.appendChild(figCaption)
-//       representativeDiv.appendChild(repFigure)
-//     })
-//   }
+       repFigure.appendChild(figImg)
+       repFigure.appendChild(figCaption)
+       representativeDiv.appendChild(repFigure)
+     })
+   }
   
-//   populateRepresentativeDiv(simpleRepresentatives)
+   populateRepresentativeDiv(simpleRepresentatives)
   
-//   const mostSeniorMember = simplifiedRepresentative().reduce((acc, representative) => {
-//     return acc.seniority > representative.seniority ? acc : representative
-//   })
+   //const mostSeniorMember = simplifiedRepresentative().reduce((acc, representative) => {
+   //  return acc.seniority > representative.seniority ? acc : representative
+   //})
+   */
   
 //   const biggestMissedVotesPct = simplifiedRepresentative().reduce((acc, representative) => acc.missedVotesPct > representative.missedVotesPct ? acc : representative)
   

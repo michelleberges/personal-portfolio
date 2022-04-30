@@ -22,7 +22,7 @@ const getAPIData = async (url) => {
         name: pokemon.name,
         types: pokemon.types,
         abilities: pokemon.abilities,
-        moves: pokemon.moves.slice(0, 4),//I don't know if this makes sense but for some reason the card only shows 4moves works when pokemons are filtered by type. 
+        moves: pokemon.moves.slice(0, 3),//I don't know if this makes sense but for some reason the card only shows 4moves works when pokemons are filtered by type. 
       }
       loadedPokemon.push(simplifiedPokemon)
       populatePokeCard(pokemon)
