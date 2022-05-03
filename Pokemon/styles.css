@@ -124,3 +124,31 @@ figcaption {
   dl {
     text-align: center;
   }
+  footer {
+    display: flex;
+    justify-content: center;
+    padding-top: .2in;
+    padding-bottom: .3in;
+  }
+  .button {
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: rgb(207, 152, 207);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px rgb(194, 194, 194);
+  }
+  
+  .button:hover {background-color: rgb(177, 129, 177)}
+  
+  .button:active {
+    background-color: rgb(207, 152, 207);
+    box-shadow: 0 5px rgb(194, 194, 194);
+    transform: translateY(4px);
+  }

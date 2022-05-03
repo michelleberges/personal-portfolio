@@ -55,6 +55,18 @@ button:hover {
   }
 
   footer {
-    text-align: center; 
+    display: flex;
+    justify-content: center;
+    padding-top: .2in;
+    padding-bottom: .3in;
   }
+  .back {
+    font-size: 24px;
+    width: 250px;
+    height: 60px;
+  }
+  .back:hover {
+    box-shadow: inset 250px 0 0 0 lightskyblue;
+  }
+
 
