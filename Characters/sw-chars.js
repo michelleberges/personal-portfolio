@@ -11,13 +11,13 @@ allCharsButton.addEventListener('click', function () {
 })
 
 const maleCharacters = people.filter((person) => person.gender === 'male') 
-const femaleCharacters = people.filter((person) => person.gender === 'female') 
+const femaleCharacters = people.filter((person) => person.gender === 'female') // comment: Here I filtered through the people who have the variable male or female and added them to the male and female characters list
 
 
 
 const otherCharacters = people.filter((person) => {
   if (
-    person.gender !== 'male' && person.gender !== 'female'
+    person.gender !== 'male' && person.gender !== 'female' // comment: used if/then statement to filter through characters that did not have male of female as their gender variable.
   ) {
     return person
   }
@@ -25,7 +25,7 @@ const otherCharacters = people.filter((person) => {
 
 const maleCharsButton = document.createElement('button')
 maleCharsButton.textContent = 'Male Characters'
-maleCharsButton.addEventListener('click', () => populateDOM(maleCharacters))
+maleCharsButton.addEventListener('click', () => populateDOM(maleCharacters)) //comment: created buttons with an Event Listener that waits for a click in order to populate the page with the characters for that button
 
 const otherCharactersButton = document.createElement('button')
 otherCharactersButton.textContent = 'Other Characters'
@@ -40,12 +40,13 @@ header.appendChild(maleCharsButton)
 header.appendChild(femaleCharactersButton)
 header.appendChild(otherCharactersButton)
 
+
 function populateDOM(characters) {
   removeChildren(main)
-  characters.forEach((person) => {
+  characters.forEach((person) => { 
     const personFig = document.createElement('figure')
     const personImg = document.createElement('img')
-
+    //comment: used the fuction to attach a picture and caption to each character, also used removeChildren to remove the characters that don't fit the filter's description.
     let charNum = getLastNumber(person.url)
 
     personImg.src = `https://starwars-visualguide.com/assets/img/characters/${charNum}.jpg`

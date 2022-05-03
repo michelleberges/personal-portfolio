@@ -130,6 +130,7 @@ const getAPIData = async (url) => {
     const pokeType1 = pokemon.types[0].type.name
     pokeBack.style.setProperty('background', getPokeTypeColor(pokeType1))
     
+    //added the information that will be shown in the back of the pokemon cards through different variables
     const typeLabel = document.createElement("h4");
     typeLabel.textContent = "Type";
     pokeBack.appendChild(typeLabel);
@@ -156,7 +157,7 @@ const getAPIData = async (url) => {
     moveslabel.textContent = 'Moves'
     pokeBack.appendChild(moveslabel)
     const movesList = document.createElement('ul')
-      pokemon.moves.slice(0, 4).forEach((movesItem) => {
+      pokemon.moves.slice(0, 4).forEach((movesItem) => { //added a moves section to the back of the card and limited the amount of moves this const show to 4
       const pokeMovesItem = document.createElement('li');
       pokeMovesItem.textContent = movesItem.move.name;
       movesList.appendChild(pokeMovesItem);
@@ -166,7 +167,7 @@ const getAPIData = async (url) => {
   
   }
 
-  function filterPokemonByType(type) {
+  function filterPokemonByType(type) { //used a function to filter through the different types of pokemons
     return loadedPokemon.filter((pokemon) => {
       if(pokemon.types[0].type.name === type) return pokemon
       if((pokemon.types[1]?.type.name) && (pokemon.types[1].type.name === type)) {
@@ -174,14 +175,14 @@ const getAPIData = async (url) => {
       } 
     })
   }
-  const selectType = document.querySelector('.type-selector');
+  const selectType = document.querySelector('.type-selector'); //used a const variable to attach the filter by type information to the type-selector drop-down, so that it knows where to grab the pokemon type from
   selectType.addEventListener('change', (event) => {
     const filterByType = filterPokemonByType(event.target.value)
     removeChildren(pokeGrid) 
     filterByType.forEach(pokemon => populatePokeCard(pokemon))
   })
 
-  function getPokeTypeColor(pokeType) {
+  function getPokeTypeColor(pokeType) { //set the card colors for the different pokemon types
     let color
     switch (pokeType) {
       case 'grass':

@@ -23,7 +23,10 @@ body {
     flex-direction: column;
   }
   .navList a:hover {
-color: white;
+    color: white;
+  }
+  .navList :active {
+    color: white;
   }
   
   .shipViewer {
@@ -45,10 +48,6 @@ color: white;
     font-size: xx-large;
     text-align: center;
   }
-  
-  /* .modal-background {
-    background-color: #333;
-  } */
   
   .nav {
     min-width: 16rem;

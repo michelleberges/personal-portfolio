@@ -134,15 +134,15 @@
   figcaption:hover {
     transform: translateY(5px);
     color: #5f1c45;
-    transition: transform 0.15s ease-out;
+    transition: transform 0.15s ease-out;/* comment: added a little animation to the caption hover */
   }
   
   .contact-details {
-    transition: transform 0.3s ease-out;
+    transition: transform 0.3s ease-out; /* comment: added a little animation to the contact details */
   }
   
   .contact-details:hover {
-    transform: translateY(12px);
+    transform: translateY(12px); /* comment: more of the little animation to the contact details */
   }
   
   @media (max-width: 75em) {

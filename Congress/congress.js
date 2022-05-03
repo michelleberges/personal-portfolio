@@ -11,12 +11,12 @@ const seniorityHeading = document.querySelector('.seniority')
 const loyaltyList = document.querySelector('.loyaltyList')
 const simpleSenators = simplifiedSenators()
 //const simpleRepresentatives = simplifiedRepresentatives
-const maleCongress = simpleSenators.filter((senator) => senator.gender === 'M')
+const maleCongress = simpleSenators.filter((senator) => senator.gender === 'M')// comment: used const variables to create filters for male and female senators
 const femaleCongress = simpleSenators.filter((senator) => senator.gender === 'F') 
 
 const maleButton = document.createElement('button')
 maleButton.textContent = 'Male'
-maleButton.addEventListener('click', () => populateSenatorDiv(maleCongress))
+maleButton.addEventListener('click', () => populateSenatorDiv(maleCongress)) // comment: created buttons with an Event Listener that waits for a click in order to populate the page with the characters for that button
 
 const femaleButton = document.createElement('button')
 femaleButton.textContent = 'Female'
@@ -42,7 +42,7 @@ function removeChildren(parent){
 }
 
 
-function simplifiedSenators() {
+function simplifiedSenators() { //comment: used a function to define which information to grab from the api for the senators
   return senators.map(senator => {
     const middleName = senator.middle_name ? ` ${senator.middle_name} ` : ` `
     return {
@@ -60,7 +60,7 @@ function simplifiedSenators() {
 
 
 
-function populateSenatorDiv(senatorArray) {
+function populateSenatorDiv(senatorArray) { // comment: used a function to define what to attach to the senatorDiv, like the image and their names
   removeChildren(senatorDiv)
   senatorArray.forEach(senator => {
     const senFigure = document.createElement('figure')
@@ -84,11 +84,10 @@ const mostSeniorMember = simplifiedSenators().reduce((acc, senator) => {
 
 const biggestMissedVotesPct = simplifiedSenators().reduce((acc, senator) => acc.missedVotesPct > senator.missedVotesPct ? acc : senator)
 
-// console.log(biggestMissedVotesPct.missedVotesPct)
 
 const biggestVacationerList = simplifiedSenators().filter(senator => senator.missedVotesPct === biggestMissedVotesPct.missedVotesPct).map(senator => senator.name).join(' and ')
 
-// console.log(biggestVacationerList)
+
 
 seniorityHeading.textContent = `The most senior member of the senate is ${mostSeniorMember.name} and the biggest vacationers are ${biggestVacationerList}`
 
@@ -102,7 +101,7 @@ simplifiedSenators().forEach(senator => {
 })
 
 
-//start of representatives
+//start of representatives (couldn't figure out how to display the representatives and filter through them)
 /* function simplifiedRepresentatives() {
      return representatives.map(representative => {
        const middleName = representative.middle_name ? ` ${representative.middle_name} ` : ` `
