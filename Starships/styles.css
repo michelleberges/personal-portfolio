@@ -17,6 +17,7 @@ body {
   .mainContainer {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
   }
   .navList {
     display: flex;
