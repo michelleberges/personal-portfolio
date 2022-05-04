@@ -3,6 +3,7 @@
     box-sizing: border-box;
     font-family: 'PT mono';
   }
+  
   header{
     background-color: rgb(207, 152, 207);
     height: 115px;
@@ -76,7 +77,7 @@ perspective: 600px;
 }
 
 .card.is-flipped {
-    transform: rotateY(-180deg); /*added */
+    transform: rotateY(-180deg); 
   }
   
   .front {

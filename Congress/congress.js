@@ -13,6 +13,8 @@ const simpleSenators = simplifiedSenators()
 //const simpleRepresentatives = simplifiedRepresentatives
 const maleCongress = simpleSenators.filter((senator) => senator.gender === 'M')// comment: used const variables to create filters for male and female senators
 const femaleCongress = simpleSenators.filter((senator) => senator.gender === 'F') 
+const republicanCongress = simpleSenators.filter((senator) => senator.party === 'R') 
+const democratCongress = simpleSenators.filter((senator) => senator.party === 'D') 
 
 const maleButton = document.createElement('button')
 maleButton.textContent = 'Male'
@@ -21,6 +23,14 @@ maleButton.addEventListener('click', () => populateSenatorDiv(maleCongress)) // 
 const femaleButton = document.createElement('button')
 femaleButton.textContent = 'Female'
 femaleButton.addEventListener('click', () => populateSenatorDiv(femaleCongress))
+
+const republicanButton = document.createElement('button')
+republicanButton.textContent = 'Republican'
+republicanButton.addEventListener('click', () => populateSenatorDiv(republicanCongress))
+
+const democratButton = document.createElement('button')
+democratButton.textContent = 'Democrat'
+democratButton.addEventListener('click', () => populateSenatorDiv(democratCongress))
 
 const senatorsButton = document.createElement('button')
 senatorsButton.textContent = 'All Senators'
@@ -32,6 +42,8 @@ senatorsButton.addEventListener('click', () => populateSenatorDiv(simpleSenators
 
 header.appendChild(maleButton)
 header.appendChild(femaleButton)
+header.appendChild(republicanButton)
+header.appendChild(democratButton)
 header.appendChild(senatorsButton)
 //header.appendChild(RepresentativesButton)
 
